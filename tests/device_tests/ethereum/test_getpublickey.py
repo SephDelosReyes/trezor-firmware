@@ -29,8 +29,8 @@ def test_ethereum_getpublickey(client, parameters, result):
     path = parse_path(parameters["path"])
     res = ethereum.get_public_node(client, path)
     assert res.node.depth == len(path)
-    assert res.node.fingerprint == int(result["fingerprint"], 16)
-    assert res.node.child_num == int(result["child_num"], 16)
+    assert res.node.fingerprint == result["fingerprint"]
+    assert res.node.child_num == result["child_num"]
     assert res.node.chain_code.hex() == result["chain_code"]
     assert res.node.public_key.hex() == result["public_key"]
     assert res.xpub == result["xpub"]
